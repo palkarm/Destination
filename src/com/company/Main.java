@@ -15,8 +15,6 @@ public final class Main {
     public static void main(String... args) throws IOException {
         Main parser = new Main("CustomerList.txt");
         parser.parseLineByLine();
-        log("Done.");
-        //   log(System.getProperty ( "user.dir" ));
     }
 
     /**
@@ -61,8 +59,8 @@ public final class Main {
         }
     }
     // get distance of each cordinate from the office location 53.339428, -6.257664
-    public static final double Radius = 6372.8; // In kilometers;
-    public static double getDistance(String latitude, String longitude, double lat2, double long2) {
+   // public static final double Radius = 6372.8; // In kilometers;
+    public double getDistance(String latitude, String longitude, double lat2, double long2) {
         String requiredLatitude = latitude.replaceAll("[a-zA-Z:\"\\s]","");
         String requiredLongitude = longitude.replaceAll("[a-zA-Z:\"\\s]","");
         double lat1 = Double.parseDouble(requiredLatitude);
@@ -74,7 +72,7 @@ public final class Main {
 
         double a = Math.pow(Math.sin(deltaLat / 2),2) + Math.pow(Math.sin(deltaLong / 2),2) * Math.cos(lat1) * Math.cos(lat2);
         double c = 2 * Math.asin(Math.sqrt(a));
-        double distance =  Radius * c  ;
+        double distance =  6372.8 * c  ;
        if(distance<=100)
        {System.out.println ("Distance " + distance + " km");}
 
